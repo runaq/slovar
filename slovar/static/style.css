@@ -1,0 +1,32 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body{ width:80%;
+margin:0 10%;
+text-align:center;
+background-color:#ccc;
+}
+#main{border: thin solid black;
+border-radius: 20px;
+margin-top:10%;
+background-color:White;
+}
+
+#wordsblock { 
+min-height:150px;
+   }
+.quest_word{color:Green; font-size:30px}
+.answ_word{color:Red;font-size:30px}  
+
+#admin_panel
+	{  position:absolute; bottom: 10; left: 50%; transform: translateX(-50%);
+
+ 
+    text-align: center;
+	
+}
+.admin_panel_buttons
+{
+    display: inline-block;
+}

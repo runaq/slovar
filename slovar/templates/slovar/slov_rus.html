@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+    <head>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+ </head>
+ 
+    <body>
+		<div class="content container">
+			<div class="row">
+				<div class="col-md-3"></div>
+                <div class="col-md-6">
+				<p>Всего слов {{ page_obj.paginator.num_pages }}.</p>
+					<div id="main">
+					
+						<div id="wordsblock">
+						
+							{% for i in page_obj %}
+								<p class ="quest_word">{{i.slov}}</p>
+								<div id="example_1" style="display:none;"><p class ="answ_word">{{i.rus}}</p></div>
+		
+								<div id="admin_panel">
+									<button onclick="(document.getElementById('example_1').style.display='block')">Не знаю</button>
+									<div class="pagination">
+										<span class="step-links">
+										
+											{% if page_obj.has_next %}
+												<button ><a href="?page={{ page_obj.next_page_number }}">Далее</a></button>
+												
+											{% endif %}
+											
+											{% if not page_obj.has_next %}
+												<button > <a href="/">Конец. Заново?</a></button>
+												
+											{% endif %}
+										</span>
+									</div><!-pagination->
+								</div><!-admin_panel->
+						
+							{% endfor %}
+						</div><!-wordsblock->
+					</div><!-main->	
+				</div><!-col-md-6->
+				<div class="col-md-3"> Количество слов, которые не знаешь:</div>
+			</div><!-row->
+		</div><!-content container->
+	</body>
+</html>
